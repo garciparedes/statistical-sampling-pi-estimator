@@ -16,17 +16,45 @@
 %	TEXT
 %-----------------------------
 
-  \section{Descripción}
-  \label{sec:description}
-
-    \paragraph{}
-    [TODO ]
-
   \section{Demostración de insesgadez}
   \label{sec:demostration_1}
 
     \paragraph{}
-    [TODO ]
+    Para una población población finita $U$ formada por los individuos $\{ 1, ..., i, ..., N\}$ cuya variable de interés se denota por $y$, siendo $y_k$ el valor que toma dicha variable en el individuo $k$. Se define el total poblacional como sigue:
+    \begin{align}
+      t &= \sum_{k \in U}y_k
+    \end{align}
+
+    \paragraph{}
+    Sea $s$ una muestra extraida de la población $U$ (por tanto $s \subset U$), se define la variable aleatoria $I_k$ como se indica a continuación:
+
+    \begin{equation}
+      I_k =
+      \begin{cases}
+        1 & \text{si } k \in s \\
+        0 & \text{si } k \not\in s
+      \end{cases}
+    \end{equation}
+
+    \paragraph{}
+    De esta manera, se puede utilizar el valor $\pi_k$ para modelizar la probabilidad de que $I_k$ tome el valor $1$, es decir, de que el elemento $k$-ésimo esté en la muestra $s$. Por tanto, se puede afirmar que $I_k \sim B(\pi_k)$, una distribución de \emph{Bernoulli} de parámetro $\pi_k$. A partir de dicha distribución se tiene que $E[I_K] = \pi_k$. Además, $pi_k > 0 \forall k \in U$ para que se cumpla la restricción de muestreo probabilístico.
+
+
+    \paragraph{}
+    Se define el $\pi$-estimador como:
+
+    \begin{equation}
+      \widehat{t}_\pi = \sum_{k \in s} \frac{y_k}{\pi_k} = \sum_{k \in U} I_k \frac{y_k}{\pi_k}
+    \end{equation}
+
+    \paragraph{}
+    La demostración acerca de la insesgadez de este estimador deriva de la esperanza de la variable $I_k$, que toma el valor $\pi_k$, tal y como se indicaba anteriormente, lo cual produce que se anule dicho valor $pi_k$ con el $pi_k$  del divisor del estimador. Además, la restricción de muestreo probabilístico $pi_k > 0 \forall k \in U$ hace que el valor $\widehat{t}_\pi$ exista siempre (no hay división entre 0). Por estas razones se puede decir que el estimador es insesgado. De manera matemática esto se describe a continuación:
+
+    \begin{align}
+      E[t] &= \sum_{k \in U} y_k \\
+      E[\widehat{t}_\pi] &= \sum_{k \in U} E[I_k] \frac{y_k}{\pi_k} = \sum_{k \in U} \pi_k \frac{y_k}{\pi_k} =\sum_{k \in U} y_k \\
+      bias(t, \widehat{t}_\pi) &= \left| E[t] - E[\widehat{t}_\pi] \right| = \left| \sum_{k \in U} y_k - \sum_{k \in U} y_k \right| = 0
+    \end{align}
 
   \section{Demostración del intervalo de confianza para la varianza}
   \label{sec:demostration_1}
