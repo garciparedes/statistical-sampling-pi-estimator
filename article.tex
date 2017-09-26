@@ -60,10 +60,30 @@
     Nótese por tanto, que el funcionamiento del $\pi$-estimador se basa en la \say{expansión} del conjunto de individuos seleccionados en la muestra $s$, de tal manera que se siga cumpliendo de la forma más precisa posible la distribución de probabilidades de la población $U$.
 
   \section{Demostración del intervalo de confianza para la varianza}
-  \label{sec:demostration_1}
+  \label{sec:demostration_2}
 
     \paragraph{}
     [TODO ]
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.75\textwidth]{normal_alpha}
+      \caption{}
+      \label{}
+    \end{figure}
+
+    \begin{align}
+      \left[\widehat{t}_\pi \pm z_{1-\alpha/2}\sqrt{\widehat{Var}[\widehat{t}_\pi]}\right]
+    \end{align}
+
+    \begin{align}
+      \Pr(|X-\widehat{t}_\pi |\leq k \sqrt{Var[\widehat{t}_\pi]} )&\geq {1-\frac {1}{k^{2}}} \\
+      \Pr\left(\widehat{t}_\pi - k \sqrt{Var[\widehat{t}_\pi]} \leq X \leq  \widehat{t}_\pi + k \sqrt{Var[\widehat{t}_\pi]} \right)&\geq {1-\frac {1}{k^{2}}} \\
+      \Pr\left(X \in \left[\widehat{t}_\pi - k \sqrt{Var[\widehat{t}_\pi]}, \widehat{t}_\pi + k \sqrt{Var[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{k^{2}}} \\
+      \Pr\left(X \in \left[\widehat{t}_\pi \pm k \sqrt{Var[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{k^{2}}} \\
+      \Pr\left(X \in \left[\widehat{t}_\pi \pm z_{1-\alpha/2} \sqrt{Var[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{z_{1-\alpha/2}^{2}}} \\
+      \Pr\left(X \in \left[\widehat{t}_\pi \pm z_{1-\alpha/2} \sqrt{\widehat{Var}[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{z_{1-\alpha/2}^{2}}}
+    \end{align}
 
 %-----------------------------
 %	Bibliographic references
