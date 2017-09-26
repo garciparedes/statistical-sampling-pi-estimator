@@ -16,7 +16,7 @@
 %	TEXT
 %-----------------------------
 
-  \section{Demostración de insesgadez}
+  \section{Demostración de la Insesgadez}
   \label{sec:demostration_1}
 
     \paragraph{}
@@ -53,13 +53,13 @@
     \begin{align}
       E[t] &= \sum_{k \in U} y_k \\
       E[\widehat{t}_\pi] &= \sum_{k \in U} E[I_k] \frac{y_k}{\pi_k} = \sum_{k \in U} \pi_k \frac{y_k}{\pi_k} =\sum_{k \in U} y_k \\
-      bias(t, \widehat{t}_\pi) &= \left| E[t] - E[\widehat{t}_\pi] \right| = \left| \sum_{k \in U} y_k - \sum_{k \in U} y_k \right| = 0
+      sesgo(t, \widehat{t}_\pi) &= \left| E[t] - E[\widehat{t}_\pi] \right| = \left| \sum_{k \in U} y_k - \sum_{k \in U} y_k \right| = 0
     \end{align}
 
     \paragraph{}
     Nótese por tanto, que el funcionamiento del $\pi$-estimador se basa en la \say{expansión} del conjunto de individuos seleccionados en la muestra $s$, de tal manera que se siga cumpliendo de la forma más precisa posible la distribución de probabilidades de la población $U$.
 
-  \section{Demostración del intervalo de confianza para la varianza}
+  \section{Demostración del Intervalo de Confianza}
   \label{sec:demostration_2}
 
     \paragraph{}
@@ -79,7 +79,7 @@
     \end{align}
 
     \paragraph{}
-    Por tanto, para demostrar que el intervalo de confianza sigue un nivel $1-\alpha$ basta con aplicar distintas propiedades algebraicas sobre este, hasta llegar a la distribución normal estándar tal y como se indicó en la ecuación \eqref{eq:normal_asumption}, que debido a su simetría permite sustituir el intervalo multiplicando por $2$ el valor de $\alpha$. Por último, debido a las propiedades de la distribución normal estándar, queda demostrado que en hasta el percentil $z_{1-\alpha}$ se localiza la probabilidad $1-\alpha$. 
+    Por tanto, para demostrar que el intervalo de confianza sigue un nivel $1-\alpha$ basta con aplicar distintas propiedades algebraicas sobre este, hasta llegar a la distribución normal estándar tal y como se indicó en la ecuación \eqref{eq:normal_asumption}, que debido a su simetría permite sustituir el intervalo multiplicando por $2$ el valor de $\alpha$. Por último, debido a las propiedades de la distribución normal estándar, queda demostrado que en hasta el percentil $z_{1-\alpha}$ se localiza la probabilidad $1-\alpha$.
 
     \begin{align}
       \Pr\left(t\in \left[\widehat{t}_\pi \pm z_{1-\alpha/2}\sqrt{Var[\widehat{t}_\pi]}\right]\right) &=\\
