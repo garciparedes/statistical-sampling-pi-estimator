@@ -63,28 +63,32 @@
   \label{sec:demostration_2}
 
     \paragraph{}
-    [TODO ]
-
-    \begin{figure}
-      \centering
-      \includegraphics[width=0.75\textwidth]{normal_alpha}
-      \caption{}
-      \label{}
-    \end{figure}
+    En este caso se pretende probar el intervalo de confianza de nivel $1-\alpha$ para la distribución de probabilidades referida a la variable aleatoria $t$, es decir, a la suma del total poblacional para la variable $Y$. Es decir, se pretende probar la igualdad descrita en la ecuación \eqref{eq:confidence_interval}. Dicha demostración se llevará a cabo siguiendo la notación de valores de probabilidad.
 
     \begin{align}
-      \left[\widehat{t}_\pi \pm z_{1-\alpha/2}\sqrt{\widehat{Var}[\widehat{t}_\pi]}\right]
+    \label{eq:confidence_interval}
+      \left[\widehat{t}_\pi \pm z_{1-\alpha/2}\sqrt{\widehat{Var}[\widehat{t}_\pi]}\right] &\equiv \Pr\left(t\in \left[\widehat{t}_\pi \pm z_{1-\alpha/2}\sqrt{Var[\widehat{t}_\pi]}\right]\right) = 1-\alpha
     \end{align}
+
+    \paragraph{}
+    Un paso previo para la demostración del intervalo de confianza es la demostración de la ecuación \eqref{eq:normal_asumption}. Por el \emph{Teorema Central del Límite} se puede asumir que la distribución $t$ sigue una distribución normal con media $\widehat{t}$ y varianza $Var[\widehat{t}_\pi]$. Por tanto, este puede ser tipificado a una distribución normal estándar. Esta propiedad se indica en la ecuación \eqref{eq:normal_asumption}
 
     \begin{align}
-      \Pr(|X-\widehat{t}_\pi |\leq k \sqrt{Var[\widehat{t}_\pi]} )&\geq {1-\frac {1}{k^{2}}} \\
-      \Pr\left(\widehat{t}_\pi - k \sqrt{Var[\widehat{t}_\pi]} \leq X \leq  \widehat{t}_\pi + k \sqrt{Var[\widehat{t}_\pi]} \right)&\geq {1-\frac {1}{k^{2}}} \\
-      \Pr\left(X \in \left[\widehat{t}_\pi - k \sqrt{Var[\widehat{t}_\pi]}, \widehat{t}_\pi + k \sqrt{Var[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{k^{2}}} \\
-      \Pr\left(X \in \left[\widehat{t}_\pi \pm k \sqrt{Var[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{k^{2}}} \\
-      \Pr\left(X \in \left[\widehat{t}_\pi \pm z_{1-\alpha/2} \sqrt{Var[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{z_{1-\alpha/2}^{2}}} \\
-      \Pr\left(X \in \left[\widehat{t}_\pi \pm z_{1-\alpha/2} \sqrt{\widehat{Var}[\widehat{t}_\pi]}\right] \right)&\geq {1-\frac {1}{z_{1-\alpha/2}^{2}}}
+    \label{eq:normal_asumption}
+      \frac{t - \widehat{t}_\pi}{\sqrt{Var[\widehat{t}_\pi]}} \sim N(0,1)
     \end{align}
 
+    \paragraph{}
+    Por tanto, para demostrar que el intervalo de confianza sigue un nivel $1-\alpha$ basta con aplicar distintas propiedades algebraicas sobre este, hasta llegar a la distribución normal estándar tal y como se indicó en la ecuación \eqref{eq:normal_asumption}, que debido a su simetría permite sustituir el intervalo multiplicando por $2$ el valor de $\alpha$. Por último, debido a las propiedades de la distribución normal estándar, queda demostrado que en hasta el percentil $z_{1-\alpha}$ se localiza la probabilidad $1-\alpha$. 
+
+    \begin{align}
+      \Pr\left(t\in \left[\widehat{t}_\pi \pm z_{1-\alpha/2}\sqrt{Var[\widehat{t}_\pi]}\right]\right) &=\\
+      &= \Pr\left(t - \widehat{t}_\pi \in \left[\pm z_{1-\alpha/2}\sqrt{Var[\widehat{t}_\pi]}\right]\right) \\
+      &= \Pr\left(\frac{t - \widehat{t}_\pi}{\sqrt{Var[\widehat{t}_\pi]}} \in \left[\pm z_{1-\alpha/2}\right]\right)  \\
+      &= \Pr\left(N(0,1) \in [\pm z_{1-\alpha/2}]\right) \\
+      &= \Pr\left(N(0,1) \leq z_{1-\alpha}]\right) \\
+      &=  1- \alpha
+    \end{align}
 %-----------------------------
 %	Bibliographic references
 %-----------------------------
